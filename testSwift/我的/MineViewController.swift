@@ -17,7 +17,7 @@ class MineViewController: UIViewController {
         self.showView.setValueNumber(zanNumber: "0", shouNumber: "0", zuoNumber: "0");
         self.baseTwoView.backgroundColor = UIColor.white;
         
-        self.baseTwoView.dataSource = ["1","2","3","4","5"];
+        self.baseTwoView.dataSource = ["1","2","3"];
         self.baseTwoView.collectionView.reloadData();
     }
     override func viewWillAppear(_ animated: Bool) {

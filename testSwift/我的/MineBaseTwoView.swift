@@ -20,11 +20,9 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
     override init(frame: CGRect) {
         super.init(frame: frame);
         self.lineOne.backgroundColor    = UIColor.gray;
-        self.imageOne.backgroundColor   = UIColor.red;
-        self.imageTwo.backgroundColor   = UIColor.red;
-        self.imageThree.backgroundColor = UIColor.red;
+        self.changeImage(page: 0);
         self.lineTwo.backgroundColor    = UIColor.gray;
-        self.collectionView.backgroundColor = UIColor.red;
+        self.collectionView.backgroundColor = UIColor.white;
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,37 +42,43 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
         return lineOne;
     }();
       //imageOne
-    lazy var imageOne:UIImageView = {
-        var imageOne = UIImageView.init();
-        self.addSubview(imageOne);
-        imageOne.snp.makeConstraints({ (make) in
+    lazy var imageOneButton:UIButton = {
+        var imageOneButton = UIButton(type: UIButtonType.custom);
+        imageOneButton.tag = 10;
+        imageOneButton.addTarget(self, action:#selector(imageButtonEvent(button:)), for: UIControlEvents.touchUpInside);
+        self.addSubview(imageOneButton);
+        imageOneButton.snp.makeConstraints({ (make) in
             make.left.equalTo(self.snp.left).offset(30);
             make.top.equalTo(self.lineOne.snp.bottom).offset(10);
             make.size.equalTo(CGSize(width: 35, height: 35));
         });
-        return imageOne;
+        return imageOneButton;
     }();
       //imagetwo
-    lazy var imageTwo:UIImageView = {
-        var imageTwo = UIImageView.init();
-        self.addSubview(imageTwo);
-        imageTwo.snp.makeConstraints({ (make) in
+    lazy var imageTwoButton:UIButton = {
+        var imageTwoButton = UIButton(type: UIButtonType.custom);
+        imageTwoButton.tag = 11;
+        imageTwoButton.addTarget(self, action:#selector(imageButtonEvent(button:)), for: UIControlEvents.touchUpInside);
+        self.addSubview(imageTwoButton);
+        imageTwoButton.snp.makeConstraints({ (make) in
             make.centerX.equalTo(self.snp.centerX).offset(0);
             make.top.equalTo(self.lineOne.snp.bottom).offset(10);
             make.size.equalTo(CGSize(width: 35, height: 35));
         });
-        return imageTwo;
+        return imageTwoButton;
     }();
       //imagethree
-    lazy var imageThree:UIImageView = {
-        var imageThree = UIImageView.init();
-        self.addSubview(imageThree);
-        imageThree.snp.makeConstraints({ (make) in
+    lazy var imageThreeButton:UIButton = {
+        var imageThreeButton = UIButton(type: UIButtonType.custom);
+        imageThreeButton.tag = 12;
+        imageThreeButton.addTarget(self, action:#selector(imageButtonEvent(button:)), for: UIControlEvents.touchUpInside);
+        self.addSubview(imageThreeButton);
+        imageThreeButton.snp.makeConstraints({ (make) in
             make.right.equalTo(self.snp.right).offset(-30);
             make.top.equalTo(self.lineOne.snp.bottom).offset(10);
             make.size.equalTo(CGSize(width: 35, height: 35));
         });
-        return imageThree;
+        return imageThreeButton;
     }();
       //linetwo
     lazy var lineTwo:UILabel = {
@@ -82,7 +86,7 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
         self.addSubview(lineTwo);
         lineTwo.snp.makeConstraints({ (make) in
             make.left.equalTo(self.snp.left).offset(0);
-            make.top.equalTo(self.imageOne.snp.bottom).offset(10);
+            make.top.equalTo(self.imageOneButton.snp.bottom).offset(10);
             make.right.equalTo(self.snp.right).offset(0);
             make.height.equalTo(1);
         });
@@ -99,6 +103,7 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
         var collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: flewLayer);
         collectionView.register(MineBaseOneCollectionViewCell.self, forCellWithReuseIdentifier: "cellRe");
         collectionView.isPagingEnabled = true;
+        collectionView.showsHorizontalScrollIndicator = false;
         collectionView.delegate   = self;
         collectionView.dataSource = self;
         self.addSubview(collectionView);
@@ -136,5 +141,52 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(-40, 0, 0, 0);
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = (Int(scrollView.contentOffset.x) / Int(UIScreen.main.bounds.size.width)) % self.dataSource.count
+        self.changeImage(page: page);
+    }
+    //MARK:修改图片颜色
+    func changeImage(page:Int) {
+        switch page {
+        case 0:
+            imageOneButton.backgroundColor = UIColor.black;
+            imageTwoButton.backgroundColor = UIColor.gray;
+            imageThreeButton.backgroundColor = UIColor.gray;
+            break;
+        case 1:
+            imageOneButton.backgroundColor = UIColor.gray;
+            imageTwoButton.backgroundColor = UIColor.black;
+            imageThreeButton.backgroundColor = UIColor.gray;
+            break;
+            
+        case 2:
+            imageOneButton.backgroundColor = UIColor.gray;
+            imageTwoButton.backgroundColor = UIColor.gray;
+            imageThreeButton.backgroundColor = UIColor.black;
+            break;
+        default:
+            print("")
+            break;
+        }
+    }
+    //MARK:点击事件，滚动视图
+    @objc func imageButtonEvent(button:UIButton){
+        let tag = button.tag;
+        self.changeImage(page: tag-10);
+        switch tag {
+        case 10:
+            collectionView.contentOffset.x = 0;
+            break;
+        case 11:
+            collectionView.contentOffset.x = UIScreen.main.bounds.size.width;
+            break;
+        case 12:
+            collectionView.contentOffset.x = UIScreen.main.bounds.size.width*2;
+            break;
+        default:
+            print("");
+            break;
+        }
     }
 }

@@ -26,6 +26,7 @@
 		846BCE5521DF3F5300A48595 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846BCE5421DF3F5300A48595 /* Kingfisher.framework */; };
 		846BCE5721DF4AA100A48595 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BCE5621DF4AA100A48595 /* CustomImageView.swift */; };
 		8481C87321C895D800AA3B9C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481C87221C895D800AA3B9C /* SnapKit.framework */; };
+		84AA968221E2E8E4001A7DB1 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA968121E2E8E4001A7DB1 /* FindViewController.swift */; };
 		E2601545B7FBD606BDDDCA01 /* Pods_testSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE9E5F52FD2FA42B2B20215 /* Pods_testSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		846BCE5421DF3F5300A48595 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		846BCE5621DF4AA100A48595 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		8481C87221C895D800AA3B9C /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84AA968121E2E8E4001A7DB1 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		B2403F382764B7A475F362DA /* Pods-testSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testSwift/Pods-testSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +170,7 @@
 				846BCE5821DF4C9200A48595 /* Extender */,
 				8437B2AB21C7263C008F03D9 /* AppDelegate.swift */,
 				8405BA2021E04B0500622F87 /* CustomTabBarViewController.swift */,
+				84AA968021E2E89B001A7DB1 /* 发现 */,
 				8405BA2321E0597C00622F87 /* 我的 */,
 				8405BA2221E054A800622F87 /* 首页 */,
 				8437B2AF21C7263C008F03D9 /* Main.storyboard */,
@@ -201,6 +204,14 @@
 			children = (
 			);
 			path = Extender;
+			sourceTree = "<group>";
+		};
+		84AA968021E2E89B001A7DB1 /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				84AA968121E2E8E4001A7DB1 /* FindViewController.swift */,
+			);
+			path = "发现";
 			sourceTree = "<group>";
 		};
 		FFFB918A931C38FF9299799D /* Pods */ = {
@@ -399,6 +410,7 @@
 				8405BA2121E04B0500622F87 /* CustomTabBarViewController.swift in Sources */,
 				8405BA1F21E0429800622F87 /* HeadView.swift in Sources */,
 				846BCE5721DF4AA100A48595 /* CustomImageView.swift in Sources */,
+				84AA968221E2E8E4001A7DB1 /* FindViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
