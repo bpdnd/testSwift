@@ -150,20 +150,19 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
     func changeImage(page:Int) {
         switch page {
         case 0:
-            imageOneButton.backgroundColor = UIColor.black;
-            imageTwoButton.backgroundColor = UIColor.gray;
-            imageThreeButton.backgroundColor = UIColor.gray;
+            imageOneButton.setImage(UIImage.init(named: "mine_list_selected"), for: UIControlState.normal);
+            imageTwoButton.setImage(UIImage.init(named: "mine_flow_normal"), for: UIControlState.normal);
+            imageThreeButton.setImage(UIImage.init(named: "mine_collect_normal"), for: UIControlState.normal);
             break;
         case 1:
-            imageOneButton.backgroundColor = UIColor.gray;
-            imageTwoButton.backgroundColor = UIColor.black;
-            imageThreeButton.backgroundColor = UIColor.gray;
+            imageOneButton.setImage(UIImage.init(named: "mine_list_normal"), for: UIControlState.normal);
+            imageTwoButton.setImage(UIImage.init(named: "mine_flow_selected"), for: UIControlState.normal);
+            imageThreeButton.setImage(UIImage.init(named: "mine_collect_normal"), for: UIControlState.normal);
             break;
-            
         case 2:
-            imageOneButton.backgroundColor = UIColor.gray;
-            imageTwoButton.backgroundColor = UIColor.gray;
-            imageThreeButton.backgroundColor = UIColor.black;
+            imageOneButton.setImage(UIImage.init(named: "mine_list_normal"), for: UIControlState.normal);
+            imageTwoButton.setImage(UIImage.init(named: "mine_flow_normal"), for: UIControlState.normal);
+            imageThreeButton.setImage(UIImage.init(named: "mine_collect_selected"), for: UIControlState.normal);
             break;
         default:
             print("")

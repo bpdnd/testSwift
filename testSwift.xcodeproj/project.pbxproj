@@ -14,6 +14,8 @@
 		8405BA2921E0839500622F87 /* MineBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405BA2821E0839500622F87 /* MineBaseView.swift */; };
 		8405BAE921E09A9300622F87 /* MineBaseTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405BAE821E09A9300622F87 /* MineBaseTwoView.swift */; };
 		8405BAEB21E0A0C700622F87 /* MineBaseOneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405BAEA21E0A0C700622F87 /* MineBaseOneCollectionViewCell.swift */; };
+		840B0C5121E33ABA002C3835 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B0C5021E33ABA002C3835 /* LoginViewController.swift */; };
+		840B0C5321E33AEB002C3835 /* loginBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 840B0C5221E33AEB002C3835 /* loginBG.jpg */; };
 		8437B2AC21C7263C008F03D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437B2AB21C7263C008F03D9 /* AppDelegate.swift */; };
 		8437B2AE21C7263C008F03D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437B2AD21C7263C008F03D9 /* ViewController.swift */; };
 		8437B2B121C7263C008F03D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437B2AF21C7263C008F03D9 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		8405BA2821E0839500622F87 /* MineBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBaseView.swift; sourceTree = "<group>"; };
 		8405BAE821E09A9300622F87 /* MineBaseTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBaseTwoView.swift; sourceTree = "<group>"; };
 		8405BAEA21E0A0C700622F87 /* MineBaseOneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBaseOneCollectionViewCell.swift; sourceTree = "<group>"; };
+		840B0C5021E33ABA002C3835 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		840B0C5221E33AEB002C3835 /* loginBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBG.jpg; sourceTree = "<group>"; };
 		8437B2A821C7263C008F03D9 /* testSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8437B2AB21C7263C008F03D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8437B2AD21C7263C008F03D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,15 @@
 			path = "我的";
 			sourceTree = "<group>";
 		};
+		840B0C4F21E33A95002C3835 /* 登陆 */ = {
+			isa = PBXGroup;
+			children = (
+				840B0C5221E33AEB002C3835 /* loginBG.jpg */,
+				840B0C5021E33ABA002C3835 /* LoginViewController.swift */,
+			);
+			path = "登陆";
+			sourceTree = "<group>";
+		};
 		8437B29F21C7263C008F03D9 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +183,7 @@
 				846BCE5821DF4C9200A48595 /* Extender */,
 				8437B2AB21C7263C008F03D9 /* AppDelegate.swift */,
 				8405BA2021E04B0500622F87 /* CustomTabBarViewController.swift */,
+				840B0C4F21E33A95002C3835 /* 登陆 */,
 				84AA968021E2E89B001A7DB1 /* 发现 */,
 				8405BA2321E0597C00622F87 /* 我的 */,
 				8405BA2221E054A800622F87 /* 首页 */,
@@ -329,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840B0C5321E33AEB002C3835 /* loginBG.jpg in Resources */,
 				8437B2B621C72646008F03D9 /* LaunchScreen.storyboard in Resources */,
 				8437B2B321C72646008F03D9 /* Assets.xcassets in Resources */,
 				8437B2B121C7263C008F03D9 /* Main.storyboard in Resources */,
@@ -410,6 +425,7 @@
 				8405BA2121E04B0500622F87 /* CustomTabBarViewController.swift in Sources */,
 				8405BA1F21E0429800622F87 /* HeadView.swift in Sources */,
 				846BCE5721DF4AA100A48595 /* CustomImageView.swift in Sources */,
+				840B0C5121E33ABA002C3835 /* LoginViewController.swift in Sources */,
 				84AA968221E2E8E4001A7DB1 /* FindViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

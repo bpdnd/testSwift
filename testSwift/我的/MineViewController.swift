@@ -13,7 +13,8 @@ class MineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white;
-        headImageView.backgroundColor = UIColor.red;
+        self.headButton.setImage(UIImage.init(named: "icon_defaultHead"), for: UIControlState.normal);
+            //.image = UIImage.init(named: "icon_defaultHead");
         self.showView.setValueNumber(zanNumber: "0", shouNumber: "0", zuoNumber: "0");
         self.baseTwoView.backgroundColor = UIColor.white;
         
@@ -30,15 +31,16 @@ class MineViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
     //MARK: 头像
-    lazy var headImageView:UIImageView = {
-        let headImageView = UIImageView.init();
-        self.view.addSubview(headImageView);
-        headImageView.snp.makeConstraints({ (make) in
+    lazy var headButton:UIButton = {
+        let headButton = UIButton(type: UIButtonType.custom);
+        headButton.adjustsImageWhenHighlighted = false;
+        self.view.addSubview(headButton);
+        headButton.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(30);
             make.top.equalTo(self.view.snp.top).offset(30);
             make.size.equalTo(CGSize(width: 80, height: 80));
         });
-        return headImageView;
+        return headButton;
     }();
     //MARK: 获赞 收藏 作品
     lazy var showView:MineBaseView = {
@@ -46,7 +48,7 @@ class MineViewController: UIViewController {
         self.view.addSubview(showView);
         showView.snp.makeConstraints({ (make) in
             make.right.equalTo(self.view.snp.right).offset(-30);
-            make.centerY.equalTo(self.headImageView.snp.centerY).offset(0);
+            make.centerY.equalTo(self.headButton.snp.centerY).offset(0);
             make.size.equalTo(CGSize(width: 120, height: 60));
         });
         return showView;
@@ -57,7 +59,7 @@ class MineViewController: UIViewController {
         self.view.addSubview(baseTwoView);
         baseTwoView.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(0);
-            make.top.equalTo(self.headImageView.snp.bottom).offset(30);
+            make.top.equalTo(self.headButton.snp.bottom).offset(30);
             make.right.equalTo(self.view.snp.right).offset(0);
             make.bottom.equalTo(self.view.snp.bottom).offset(0);
         });
