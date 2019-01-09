@@ -14,15 +14,20 @@ class CustomTabBarViewController: UITabBarController {
         super.viewDidLoad()
         //首页
         let homeVC = ViewController();
-        self.addChildViewController(childerVC: homeVC, title: "首页1", normalImg: "shouye_normal", selectedImg: "shouye_selected");
+        self.addChildViewController(childerVC: homeVC, title: "", normalImg: "recommendTab", selectedImg: "recommendTabHigh");
         //发现
         let findVC = FindViewController();
-        self.addChildViewController(childerVC: findVC, title: "发现", normalImg: "normal", selectedImg: "selected");
+        self.addChildViewController(childerVC: findVC, title: "", normalImg: "noteTab", selectedImg: "noteTabHigh");
+        //添加
+        let addVC = AddViewController();
+        self.addChildViewController(childerVC: addVC, title: "", normalImg: "addTab", selectedImg: "addTabHigh");
+        //播放
+        let playVC = PlayViewController();
+        self.addChildViewController(childerVC: playVC, title: "", normalImg: "tvTab", selectedImg: "tvTabHigh");
         //我的
         let mineVC = MineViewController();
-        self.addChildViewController(childerVC: mineVC, title: "我的", normalImg: "shouye_normal", selectedImg: "shouye_selected");
+        self.addChildViewController(childerVC: mineVC, title: "", normalImg: "mineTab", selectedImg: "mineTabHigh");
         self.selectedIndex = 0;
-        
     }
     //添加子控制器
     func addChildViewController(childerVC:UIViewController,title:NSString,normalImg:NSString,selectedImg:NSString)  {

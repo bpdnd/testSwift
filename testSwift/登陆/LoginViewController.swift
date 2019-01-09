@@ -15,9 +15,12 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = UIColor.white;
         backImageView.image = UIImage.init(named: "loginBG.jpg");
         goBackButton.setImage(UIImage.init(named: "icon_returnBack"), for: UIControlState.normal);
-        goBackButton.backgroundColor = UIColor.red;
-    }
+        goBackButton.backgroundColor = UIColor.clear;
+        userNameTextField.placeholder = "请输入账号";
+        passWordTextField.placeholder = "请输入密码";
+        loginButton.setTitle("登陆", for: UIControlState.normal);
 
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(true, animated: true);
@@ -47,13 +50,52 @@ class LoginViewController: UIViewController {
         return goBackButton;
     }();
     @objc func returnBackEvent(button:UIButton){
-        print("122");
         self.navigationController?.popViewController(animated: true);
     }
+    lazy var userNameTextField:LoginBaseTextField = {
+        var userNameTextField = LoginBaseTextField.init();
+        self.backImageView.addSubview(userNameTextField);
+        userNameTextField.snp.makeConstraints({ (make) in
+            make.left.equalTo(self.backImageView.snp.left).offset(30);
+            make.top.equalTo(self.backImageView.snp.top).offset(150);
+            make.right.equalTo(self.backImageView.snp.right).offset(-30);
+            make.height.equalTo(40);
+        });
+        return userNameTextField;
+    }();
+    lazy var passWordTextField:LoginBaseTextField = {
+        var passWordTextField = LoginBaseTextField.init();
+        self.backImageView.addSubview(passWordTextField);
+        passWordTextField.snp.makeConstraints({ (make) in
+            make.left.equalTo(self.backImageView.snp.left).offset(30);
+            make.top.equalTo(self.userNameTextField.snp.bottom).offset(30);
+            make.right.equalTo(self.backImageView.snp.right).offset(-30);
+            make.height.equalTo(40);
+        });
+        return passWordTextField;
+    }();
+    lazy var loginButton:LoginButton = {
+        var loginButton = LoginButton.init(type: UIButtonType.custom);
+        loginButton.setTitleColor(UIColor(red: 0/255, green: 73/255, blue: 74/255, alpha: 1), for: UIControlState.normal);
+        loginButton.backgroundColor = UIColor(red: 235/255, green: 242/255, blue: 243/255, alpha: 1);
+        self.backImageView.addSubview(loginButton);
+        loginButton.snp.makeConstraints({ (make) in
+            make.left.equalTo(self.backImageView.snp.left).offset(30);
+            make.top.equalTo(self.passWordTextField.snp.bottom).offset(30);
+            make.right.equalTo(self.backImageView.snp.right).offset(-30);
+            make.height.equalTo(50);
+        });
+        return loginButton;
+    }();
     
     
     
-
+    
+    //MARK:点击空白处，键盘收回
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true);
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
