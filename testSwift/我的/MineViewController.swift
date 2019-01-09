@@ -12,12 +12,12 @@ class MineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false;
         self.view.backgroundColor = UIColor.white;
         self.headButton.setImage(UIImage.init(named: "icon_defaultHead"), for: UIControlState.normal);
-            //.image = UIImage.init(named: "icon_defaultHead");
+        self.signView.label.text  = "122";
         self.showView.setValueNumber(zanNumber: "0", shouNumber: "0", zuoNumber: "0");
         self.baseTwoView.backgroundColor = UIColor.white;
-        
         self.baseTwoView.dataSource = ["1","2","3"];
         self.baseTwoView.collectionView.reloadData();
     }
@@ -34,6 +34,7 @@ class MineViewController: UIViewController {
     lazy var headButton:UIButton = {
         let headButton = UIButton(type: UIButtonType.custom);
         headButton.adjustsImageWhenHighlighted = false;
+        headButton.addTarget(self,action: #selector(gotoLogin(button:)), for: UIControlEvents.touchUpInside);
         self.view.addSubview(headButton);
         headButton.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(30);
@@ -41,6 +42,24 @@ class MineViewController: UIViewController {
             make.size.equalTo(CGSize(width: 80, height: 80));
         });
         return headButton;
+    }();
+    @objc func gotoLogin(button:UIButton){
+        self.hidesBottomBarWhenPushed = true;
+        let loginVC = LoginViewController.init();
+        self.navigationController?.pushViewController(loginVC, animated: true);
+        self.hidesBottomBarWhenPushed = false;
+    }
+    //MARK: 签名
+    lazy var signView:MineSignView = {
+        var signView = MineSignView.init(frame: .zero);
+        self.view.addSubview(signView);
+        signView.snp.makeConstraints({ (make) in
+            make.left.equalTo(self.view.snp.left).offset(30);
+            make.top.equalTo(self.headButton.snp.bottom).offset(20);
+            make.right.equalTo(self.view.snp.right).offset(-30);
+            make.height.equalTo(40);
+        });
+        return signView;
     }();
     //MARK: 获赞 收藏 作品
     lazy var showView:MineBaseView = {
@@ -59,7 +78,7 @@ class MineViewController: UIViewController {
         self.view.addSubview(baseTwoView);
         baseTwoView.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(0);
-            make.top.equalTo(self.headButton.snp.bottom).offset(30);
+            make.top.equalTo(self.headButton.snp.bottom).offset(80);
             make.right.equalTo(self.view.snp.right).offset(0);
             make.bottom.equalTo(self.view.snp.bottom).offset(0);
         });

@@ -131,7 +131,7 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
         return cell;
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.size.width, height: 500);
+        return CGSize(width: UIScreen.main.bounds.size.width, height: collectionView.frame.height);
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0;
@@ -140,7 +140,7 @@ class MineBaseTwoView: UIView,UICollectionViewDelegateFlowLayout,UICollectionVie
         return 0;
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(-40, 0, 0, 0);
+        return UIEdgeInsetsMake(0, 0, 0, 0);
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = (Int(scrollView.contentOffset.x) / Int(UIScreen.main.bounds.size.width)) % self.dataSource.count

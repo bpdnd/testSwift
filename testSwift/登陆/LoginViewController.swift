@@ -13,10 +13,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white;
-        backImageView.image = UIImage.init(named: "loginBG");
+        backImageView.image = UIImage.init(named: "loginBG.jpg");
+        goBackButton.setImage(UIImage.init(named: "icon_returnBack"), for: UIControlState.normal);
+        goBackButton.backgroundColor = UIColor.red;
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.setNavigationBarHidden(true, animated: true);
+    }
+    //MARK :懒加载
     lazy var backImageView:UIImageView = {
         var backImageView = UIImageView.init();
+        backImageView.isUserInteractionEnabled = true;
         self.view.addSubview(backImageView);
         backImageView.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(0);
@@ -26,6 +35,23 @@ class LoginViewController: UIViewController {
         });
         return backImageView;
     }();
+    lazy var goBackButton:UIButton = {
+        var  goBackButton = UIButton(type: UIButtonType.custom);
+        goBackButton.addTarget(self, action: #selector(returnBackEvent(button:)), for: UIControlEvents.touchUpInside);
+        self.backImageView.addSubview(goBackButton);
+        goBackButton.snp.makeConstraints({ (make) in
+            make.left.equalTo(self.backImageView.snp.left).offset(15);
+            make.top.equalTo(self.backImageView.snp.top).offset(28);
+            //make.size.equalTo(CGSize.init(width: 45, height: 45));
+        });
+        return goBackButton;
+    }();
+    @objc func returnBackEvent(button:UIButton){
+        print("122");
+        self.navigationController?.popViewController(animated: true);
+    }
+    
+    
     
 
     override func didReceiveMemoryWarning() {

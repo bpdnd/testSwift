@@ -87,9 +87,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         do {
             let data:Data = try Data.init(contentsOf: NSURL.init(string: model.backUrl!)! as URL)
             let image:UIImage = UIImage.init(data: data)!
-            let width  = image.size.width;
-            let height = image.size.height;
-            cellHeight = Float((UIScreen.main.bounds.size.width-20)/width*height);
+            let bili  = Float(image.size.width/image.size.height); //宽高比
+            cellHeight = Float(Float(UIScreen.main.bounds.size.width-20)/bili);
         } catch {
             
         }
