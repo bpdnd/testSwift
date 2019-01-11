@@ -101,7 +101,6 @@ class LoginViewController: UIViewController {
     @objc func loginButtonEvent(button:UIButton) {
         let userName:String = userNameTextField.text!;
         let passWord:String = passWordTextField.text!;
-        
         if userName.isEmpty || passWord.isEmpty {
             print("账号或密码不能为空");
         }else{
