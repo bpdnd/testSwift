@@ -88,6 +88,7 @@ class LoginViewController: UIViewController {
         var loginButton = LoginButton.init(type: UIButtonType.custom);
         loginButton.setTitleColor(UIColor(red: 0/255, green: 73/255, blue: 74/255, alpha: 1), for: UIControlState.normal);
         loginButton.backgroundColor = UIColor(red: 235/255, green: 242/255, blue: 243/255, alpha: 1);
+        loginButton.addTarget(self, action: #selector(loginButtonEvent(button:)), for: UIControlEvents.touchUpInside);
         self.backImageView.addSubview(loginButton);
         loginButton.snp.makeConstraints({ (make) in
             make.left.equalTo(self.backImageView.snp.left).offset(30);
@@ -97,6 +98,16 @@ class LoginViewController: UIViewController {
         });
         return loginButton;
     }();
+    @objc func loginButtonEvent(button:UIButton) {
+        let userName:String = userNameTextField.text!;
+        let passWord:String = passWordTextField.text!;
+        
+        if userName.isEmpty || passWord.isEmpty {
+            print("账号或密码不能为空");
+        }else{
+            print("OK");
+        }
+    }
     //MARK:忘记密码
     lazy var forgetButton:UIButton = {
         var forgetButton = UIButton.init(type: UIButtonType.custom);
@@ -148,7 +159,6 @@ class LoginViewController: UIViewController {
     @objc func protocolButtonEvent(button:UIButton){
         self.isAgreeProtocol = self.isAgreeProtocol! ? false:true;
         if self.isAgreeProtocol! {
-            //button.setBackgroundImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControlState#>)
             button.setImage(UIImage.init(named: "icon_agreeYes"), for: UIControlState.normal);
         }else{
             button.setImage(UIImage.init(named: "icon_agreeNo"), for: UIControlState.normal);
