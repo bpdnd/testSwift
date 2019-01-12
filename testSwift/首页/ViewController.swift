@@ -18,11 +18,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.view.backgroundColor = UIColor.white;
         tableView.backgroundColor = UIColor.white;
         dataSource = NSMutableArray.init();
-        for _ in 0..<10 {
+        for i in 0..<10 {
             let model = Model.init();
-            model.backUrl = "http://c.hiphotos.baidu.com/image/pic/item/64380cd7912397dd23fb719b5482b2b7d1a287ab.jpg";
+            if i==0 {
+                model.backUrl = "http://c.hiphotos.baidu.com/image/pic/item/64380cd7912397dd23fb719b5482b2b7d1a287ab.jpg";
+            }
+            if i==1 {
+                model.backUrl = "http://qkk.oss-cn-beijing.aliyuncs.com//qkk/travel/oxpbTvjqOqdE-wNIJr59ENcWJBTk/1544278655.png";
+            }else if i==3 {
+                
+                //http://qkk.oss-cn-beijing.aliyuncs.com//qkk/travel/oxpbTvpiUk3efyX77EwCvf3YGU3U/1544328257.png
+                model.backUrl = "http://e.hiphotos.baidu.com/image/h%3D300/sign=c7f14abbac8b87d64f42ad1f370a2860/eaf81a4c510fd9f9a3c7ade3282dd42a2934a46c.jpg";
+            }else{
+                model.backUrl = "http://c.hiphotos.baidu.com/image/pic/item/64380cd7912397dd23fb719b5482b2b7d1a287ab.jpg";
+            }
+
             model.headUrl = "http://g.hiphotos.baidu.com/image/pic/item/adaf2edda3cc7cd9ebe507433401213fb90e915b.jpg";
-            model.name    = "姓名";
+            model.name    = String(i);
             dataSource?.add(model);
         }
         tableView.reloadData();
@@ -32,11 +44,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.navigationController?.setNavigationBarHidden(true, animated: true);
 
     }
-
-    
-    
-    
-    
     lazy var tableView:UITableView = {
         var tableView = UITableView(frame: CGRect.zero, style: .plain);
         tableView.tableFooterView = UIView.init();
@@ -78,11 +85,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //MARK:CELL高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if (cellHeightDic["\(indexPath.row)"] != nil) {
+        if (cellHeightDic[String(indexPath.row)] != nil) {
             let height = CGFloat(cellHeightDic["\(indexPath.row)"]!);
             return height;
         }
-        let model:Model = dataSource?.object(at: indexPath.row) as! Model;
+        let model:Model = dataSource![indexPath.row] as! Model;
         var cellHeight:Float = 80;
         do {
             let data:Data = try Data.init(contentsOf: NSURL.init(string: model.backUrl!)! as URL)
@@ -92,7 +99,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         } catch {
             
         }
-        cellHeightDic.updateValue(CGFloat(cellHeight), forKey: "\(indexPath.row)");
+        cellHeightDic.updateValue(CGFloat(cellHeight), forKey: String(indexPath.row));
         return CGFloat(cellHeight);
     }
     //MARK:CELL 点击

@@ -72,11 +72,9 @@ class CustomTableViewCell: UITableViewCell {
     func setValueForCell(model:Model) {
         let backUrl = URL(string: model.backUrl!);
         self.customImageView.imageView.kf.setImage(with: backUrl);
-        
         let headUrl = URL(string: model.headUrl!);
         self.headView.imageView.kf.setImage(with: headUrl);
-        
-        self.headView.imageView.backgroundColor = UIColor.white;
+        self.headView.imageView.backgroundColor = UIColor.red;
         self.nameLabel.text = model.name;
     }
 }

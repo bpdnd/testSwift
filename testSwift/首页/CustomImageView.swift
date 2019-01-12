@@ -15,18 +15,21 @@ class CustomImageView: UIView {
     // An empty implementation adversely affects performance during animation.
     */
     override func draw(_ rect: CGRect) {
-        let corners: UIRectCorner = [.topLeft,.topRight,.bottomLeft,.bottomRight]
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: 10, height: 10));
-        let maskLayer = CAShapeLayer.init();
-        maskLayer.path = path.cgPath;
-        maskLayer.frame = rect;
-        self.layer.mask = maskLayer;
+//        let corners: UIRectCorner = [.topLeft,.topRight,.bottomLeft,.bottomRight]
+//        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: 10, height: 10));
+//        let maskLayer = CAShapeLayer.init();
+//        maskLayer.path = path.cgPath;
+//        maskLayer.frame = rect;
+//        self.layer.mask = maskLayer;
+
     }
     override init(frame: CGRect) {
         super.init(frame: frame);
     }
     lazy var imageView:UIImageView = {
         var imageView = UIImageView.init();
+        imageView.layer.cornerRadius = 10;
+        imageView.layer.masksToBounds =  true;
         self.addSubview(imageView);
         imageView.snp.makeConstraints({ (make) in
             make.left.equalTo(self.snp.left).offset(0);
@@ -36,10 +39,6 @@ class CustomImageView: UIView {
         });
         return imageView;
     }();
-    
-    
-    
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
