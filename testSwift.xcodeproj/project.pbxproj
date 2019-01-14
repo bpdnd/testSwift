@@ -17,6 +17,7 @@
 		840B0C5121E33ABA002C3835 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B0C5021E33ABA002C3835 /* LoginViewController.swift */; };
 		840B0C5321E33AEB002C3835 /* loginBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 840B0C5221E33AEB002C3835 /* loginBG.jpg */; };
 		8419941F21EC0DA700AA6593 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419941E21EC0DA700AA6593 /* ShowViewController.swift */; };
+		8419942121EC667900AA6593 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419942021EC667900AA6593 /* UIImage+Extension.swift */; };
 		8437B2AC21C7263C008F03D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437B2AB21C7263C008F03D9 /* AppDelegate.swift */; };
 		8437B2AE21C7263C008F03D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437B2AD21C7263C008F03D9 /* ViewController.swift */; };
 		8437B2B121C7263C008F03D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437B2AF21C7263C008F03D9 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		840B0C5021E33ABA002C3835 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		840B0C5221E33AEB002C3835 /* loginBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBG.jpg; sourceTree = "<group>"; };
 		8419941E21EC0DA700AA6593 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		8419942021EC667900AA6593 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		8437B2A821C7263C008F03D9 /* testSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8437B2AB21C7263C008F03D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8437B2AD21C7263C008F03D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		846BCE5821DF4C9200A48595 /* Extender */ = {
 			isa = PBXGroup;
 			children = (
+				8419942021EC667900AA6593 /* UIImage+Extension.swift */,
 			);
 			path = Extender;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				8453E4A721E5A86A00F66964 /* LoginBaseTextField.swift in Sources */,
 				8405BAE921E09A9300622F87 /* MineBaseTwoView.swift in Sources */,
 				8437B2AC21C7263C008F03D9 /* AppDelegate.swift in Sources */,
+				8419942121EC667900AA6593 /* UIImage+Extension.swift in Sources */,
 				8405BAEB21E0A0C700622F87 /* MineBaseOneCollectionViewCell.swift in Sources */,
 				8405BA2521E059A500622F87 /* MineViewController.swift in Sources */,
 				8419941F21EC0DA700AA6593 /* ShowViewController.swift in Sources */,

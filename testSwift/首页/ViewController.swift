@@ -107,6 +107,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         print(dataSource?.object(at: indexPath.row) ?? "34");
         self.hidesBottomBarWhenPushed = true;
         let showVC = ShowViewController();
+        showVC.model = dataSource?.object(at: indexPath.row) as? Model;
         self.navigationController?.pushViewController(showVC, animated: true);
         self.hidesBottomBarWhenPushed = false;
     }
