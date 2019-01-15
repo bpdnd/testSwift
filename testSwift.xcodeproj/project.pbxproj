@@ -34,6 +34,7 @@
 		846BCE5521DF3F5300A48595 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846BCE5421DF3F5300A48595 /* Kingfisher.framework */; };
 		846BCE5721DF4AA100A48595 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846BCE5621DF4AA100A48595 /* CustomImageView.swift */; };
 		846CEB8221E49E2E006CAFF0 /* MineSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CEB8121E49E2E006CAFF0 /* MineSignView.swift */; };
+		846D8C0621ED63F200A683DE /* LeftButtonShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D8C0521ED63F200A683DE /* LeftButtonShowView.swift */; };
 		8481C87321C895D800AA3B9C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481C87221C895D800AA3B9C /* SnapKit.framework */; };
 		84AA968221E2E8E4001A7DB1 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA968121E2E8E4001A7DB1 /* FindViewController.swift */; };
 		E2601545B7FBD606BDDDCA01 /* Pods_testSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE9E5F52FD2FA42B2B20215 /* Pods_testSwift.framework */; };
@@ -92,6 +93,7 @@
 		846BCE5421DF3F5300A48595 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		846BCE5621DF4AA100A48595 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		846CEB8121E49E2E006CAFF0 /* MineSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSignView.swift; sourceTree = "<group>"; };
+		846D8C0521ED63F200A683DE /* LeftButtonShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftButtonShowView.swift; sourceTree = "<group>"; };
 		8481C87221C895D800AA3B9C /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AA968121E2E8E4001A7DB1 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		B2403F382764B7A475F362DA /* Pods-testSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testSwift/Pods-testSwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				8419941E21EC0DA700AA6593 /* ShowViewController.swift */,
+				846D8C0521ED63F200A683DE /* LeftButtonShowView.swift */,
 			);
 			path = "展示具体";
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				846BCE5121DF115F00A48595 /* Model.swift in Sources */,
 				8453E4AD21E5D4E300F66964 /* PlayViewController.swift in Sources */,
 				8405BA2121E04B0500622F87 /* CustomTabBarViewController.swift in Sources */,
+				846D8C0621ED63F200A683DE /* LeftButtonShowView.swift in Sources */,
 				8453E4AA21E5D44200F66964 /* AddViewController.swift in Sources */,
 				8405BA1F21E0429800622F87 /* HeadView.swift in Sources */,
 				846BCE5721DF4AA100A48595 /* CustomImageView.swift in Sources */,

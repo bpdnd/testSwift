@@ -104,7 +104,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     //MARK:CELL 点击
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(dataSource?.object(at: indexPath.row) ?? "34");
         self.hidesBottomBarWhenPushed = true;
         let showVC = ShowViewController();
         showVC.model = dataSource?.object(at: indexPath.row) as? Model;
