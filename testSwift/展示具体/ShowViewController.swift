@@ -65,7 +65,6 @@ class ShowViewController: UIViewController {
         leftButton.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(15);
             make.top.equalTo(self.view.snp.top).offset(28);
-            //make.size.equalTo(CGSize.init(width: 45, height: 45));
         });
         return leftButton;
     }();
@@ -74,13 +73,13 @@ class ShowViewController: UIViewController {
         button.isHidden = true;
     }
     lazy var leftButtonShow:LeftButtonShowView = {
-        var leftButtonShow = LeftButtonShowView.init();
+        var leftButtonShow = LeftButtonShowView.init(frame: .zero);
         leftButtonShow.backgroundColor = UIColor.white;
         self.view.addSubview(leftButtonShow);
         leftButtonShow.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(15);
             make.top.equalTo(self.view.snp.top).offset(28);
-            make.size.equalTo(CGSize.init(width: 200, height: 50));
+            make.size.equalTo(CGSize.init(width: 180, height: 50));
         });
         return leftButtonShow;
     }();
