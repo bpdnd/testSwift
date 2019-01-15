@@ -39,6 +39,11 @@ class ShowViewController: UIViewController {
     lazy var tableView:UITableView = {
         let tableView = UITableView.init(frame: .zero, style: UITableViewStyle.plain);
         tableView.tableFooterView = UIView.init();
+        let tap = UITapGestureRecognizer.init();
+        tap.numberOfTapsRequired = 1;
+        tap.numberOfTouchesRequired = 1;
+        tap.addTarget(self, action: #selector(tableViewTap));
+        tableView.addGestureRecognizer(tap);
         self.view.addSubview(tableView);
         tableView.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(0);
@@ -48,6 +53,10 @@ class ShowViewController: UIViewController {
         });
         return tableView;
     }();
+    @objc func tableViewTap() {
+        leftButtonShow.isHidden = true;
+        leftButton.isHidden = false;
+    }
     //MARK: 左边按钮
     lazy var leftButton:UIButton = {
         var leftButton = UIButton.init(type: UIButtonType.custom);
@@ -62,6 +71,7 @@ class ShowViewController: UIViewController {
     }();
     @objc func leftButtonEvent(button:UIButton) {
         leftButtonShow.isHidden = false;
+        button.isHidden = true;
     }
     lazy var leftButtonShow:LeftButtonShowView = {
         var leftButtonShow = LeftButtonShowView.init();
