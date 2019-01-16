@@ -29,7 +29,7 @@ class ShowViewController: UIViewController {
         
         self.leftButton.setImage(UIImage.init(named: "icon_more_b"), for: UIControlState.normal);
         self.rightButton.setImage(UIImage.init(named: "icon_close_black"), for: UIControlState.normal);
-        leftButtonShow.isHidden = true;
+        leftButtonShowBackView.showBackViewIsShow(isShow: false);
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
@@ -54,7 +54,7 @@ class ShowViewController: UIViewController {
         return tableView;
     }();
     @objc func tableViewTap() {
-        leftButtonShow.isHidden = true;
+        leftButtonShowBackView.isHidden = true;
         leftButton.isHidden = false;
     }
     //MARK: 左边按钮
@@ -69,20 +69,23 @@ class ShowViewController: UIViewController {
         return leftButton;
     }();
     @objc func leftButtonEvent(button:UIButton) {
-        leftButtonShow.isHidden = false;
+        leftButtonShowBackView.showBackViewIsShow(isShow: true);
         button.isHidden = true;
     }
-    lazy var leftButtonShow:LeftButtonShowView = {
-        var leftButtonShow = LeftButtonShowView.init(frame: .zero);
-        leftButtonShow.backgroundColor = UIColor.white;
-        self.view.addSubview(leftButtonShow);
-        leftButtonShow.snp.makeConstraints({ (make) in
-            make.left.equalTo(self.view.snp.left).offset(15);
-            make.top.equalTo(self.view.snp.top).offset(28);
-            make.size.equalTo(CGSize.init(width: 180, height: 50));
-        });
-        return leftButtonShow;
+    lazy var leftButtonShowBackView:LeftButtonShowBackView = {
+        var leftButtonShowBackView = LeftButtonShowBackView.init(frame:UIScreen.main.bounds);
+        let tap = UITapGestureRecognizer.init();
+        tap.numberOfTapsRequired = 1;
+        tap.numberOfTouchesRequired = 1;
+        tap.addTarget(self, action: #selector(leftButtonShowBackViewTap));
+        leftButtonShowBackView.addGestureRecognizer(tap);
+        leftButtonShowBackView.backgroundColor = UIColor.init(white: 0.8, alpha: 0.5);
+        return leftButtonShowBackView;
     }();
+    @objc func leftButtonShowBackViewTap() {
+        leftButtonShowBackView.showBackViewIsShow(isShow: false);
+        leftButton.isHidden = false;
+    }
     //MARK: 右边按钮
     lazy var rightButton:UIButton = {
         var rightButton = UIButton.init(type: UIButtonType.custom);
@@ -97,11 +100,6 @@ class ShowViewController: UIViewController {
     @objc func returnBack(button:UIButton) {
         self.navigationController?.popViewController(animated: true);
     }
-    
-    
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
