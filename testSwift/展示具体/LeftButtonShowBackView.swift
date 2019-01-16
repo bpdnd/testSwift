@@ -37,7 +37,19 @@ class LeftButtonShowBackView: UIView {
     }();
     func showBackViewIsShow(isShow:Bool){
         if isShow {
-           UIApplication.shared.keyWindow?.addSubview(self);
+            
+            var isHaveShow:Bool = false;
+            for  item:UIView  in (UIApplication.shared.keyWindow?.subviews)!{
+                if item.isKind(of: LeftButtonShowBackView.self) {
+                    isHaveShow = true;
+                    break;
+                }else{
+                    
+                }
+            }
+            if !isHaveShow {
+                UIApplication.shared.keyWindow?.addSubview(self);
+            }
         }else{
            self.removeFromSuperview();
         }

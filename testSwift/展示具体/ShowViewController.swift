@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowViewController: UIViewController {
+class ShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var model:Model?;
     
     override func viewDidLoad() {
@@ -39,11 +39,8 @@ class ShowViewController: UIViewController {
     lazy var tableView:UITableView = {
         let tableView = UITableView.init(frame: .zero, style: UITableViewStyle.plain);
         tableView.tableFooterView = UIView.init();
-        let tap = UITapGestureRecognizer.init();
-        tap.numberOfTapsRequired = 1;
-        tap.numberOfTouchesRequired = 1;
-        tap.addTarget(self, action: #selector(tableViewTap));
-        tableView.addGestureRecognizer(tap);
+        tableView.delegate   = self;
+        tableView.dataSource = self;
         self.view.addSubview(tableView);
         tableView.snp.makeConstraints({ (make) in
             make.left.equalTo(self.view.snp.left).offset(0);
@@ -53,10 +50,6 @@ class ShowViewController: UIViewController {
         });
         return tableView;
     }();
-    @objc func tableViewTap() {
-        leftButtonShowBackView.isHidden = true;
-        leftButton.isHidden = false;
-    }
     //MARK: 左边按钮
     lazy var leftButton:UIButton = {
         var leftButton = UIButton.init(type: UIButtonType.custom);
@@ -100,6 +93,33 @@ class ShowViewController: UIViewController {
     @objc func returnBack(button:UIButton) {
         self.navigationController?.popViewController(animated: true);
     }
+    //MARK: tableView delegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2;
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellRe = "cellRe";
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellRe);
+        if cell == nil {
+            cell = UITableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellRe);
+        }
+        cell?.selectionStyle = UITableViewCellSelectionStyle.none;
+        cell?.backgroundColor = UIColor.clear;
+        return cell!;
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.height;
+    }
+    
+    
+    
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
