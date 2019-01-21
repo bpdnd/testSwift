@@ -102,23 +102,18 @@ class ShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellRe = "cellRe";
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellRe);
+        var cell:ShowOneTableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellRe) as! ShowOneTableViewCell;
         if cell == nil {
-            cell = UITableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellRe);
+            cell = ShowOneTableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellRe);
         }
         cell?.selectionStyle = UITableViewCellSelectionStyle.none;
         cell?.backgroundColor = UIColor.clear;
+        cell.label.text = "完美";
         return cell!;
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height;
     }
-    
-    
-    
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
