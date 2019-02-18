@@ -20,7 +20,8 @@ class ShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let imageView = UIImageView.init();
         
         let  image = UIImage.init(data: data! as Data);
-        imageView.image = image?.reSizeImage(resize: CGSize.init(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height));
+        imageView.image = image?.crop(ratio: UIScreen.main.bounds.size.width/UIScreen.main.bounds.size.height);
+      //imageView.image = image?.reSizeImage(resize: CGSize.init(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height));
 
 //        imageView.kf.setImage(with: URL(string: (model?.backUrl)!));
 //        imageView.contentMode = UIViewContentMode.center;
@@ -101,14 +102,29 @@ class ShowViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return 2;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellRe = "cellRe";
-        var cell:ShowOneTableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellRe) as! ShowOneTableViewCell;
-        if cell == nil {
-            cell = ShowOneTableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellRe);
+        
+        if indexPath.row == 0 {
+            let cellRe = "cellOneRe";
+            var cell:ShowOneTableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellRe) as? ShowOneTableViewCell;
+            if cell == nil {
+                cell = ShowOneTableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellRe);
+            }
+            cell?.backgroundColor = UIColor.clear;
+            cell.label.text = "完美";
+            return cell!;
         }
-        cell?.selectionStyle = UITableViewCellSelectionStyle.none;
-        cell?.backgroundColor = UIColor.clear;
-        cell.label.text = "完美";
+       
+        let cellRe = "cellTwoRe";
+        var cell:ShowTwoTableViewCell! = tableView.dequeueReusableCell(withIdentifier: cellRe) as? ShowTwoTableViewCell;
+        if cell == nil {
+            cell = ShowTwoTableViewCell.init(style: UITableViewCellStyle.value1, reuseIdentifier: cellRe);
+        }
+        cell?.backgroundColor = UIColor.init(white: 0.8, alpha: 0.6);
+        cell.label.text = "苍翠田野，碧蓝深海,喧嚣街市，眼睛明亮笑容坚韧的女人们";
+        cell.setHeadImageUrl(url: model!.headUrl ?? "");
+        cell.nameLabel.text = "12121";
+        cell.chuDate.text = "出发日期/2019-02-19";
+        cell.chuDateNum.text = "出发天数/3天";
         return cell!;
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

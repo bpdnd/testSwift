@@ -42,6 +42,7 @@
 		8481C87321C895D800AA3B9C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481C87221C895D800AA3B9C /* SnapKit.framework */; };
 		84AA968221E2E8E4001A7DB1 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA968121E2E8E4001A7DB1 /* FindViewController.swift */; };
 		84E163A221F5AD5B00DA501F /* FindListCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E163A121F5AD5B00DA501F /* FindListCollectionViewLayout.swift */; };
+		84E6CC252219332B00611DBD /* ShowTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6CC242219332B00611DBD /* ShowTwoTableViewCell.swift */; };
 		E2601545B7FBD606BDDDCA01 /* Pods_testSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE9E5F52FD2FA42B2B20215 /* Pods_testSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		8481C87221C895D800AA3B9C /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84AA968121E2E8E4001A7DB1 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		84E163A121F5AD5B00DA501F /* FindListCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindListCollectionViewLayout.swift; sourceTree = "<group>"; };
+		84E6CC242219332B00611DBD /* ShowTwoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTwoTableViewCell.swift; sourceTree = "<group>"; };
 		B2403F382764B7A475F362DA /* Pods-testSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testSwift/Pods-testSwift.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 			children = (
 				8419941E21EC0DA700AA6593 /* ShowViewController.swift */,
 				847107BE21F2BCB300C61666 /* ShowOneTableViewCell.swift */,
+				84E6CC242219332B00611DBD /* ShowTwoTableViewCell.swift */,
 				846D8C0721EDDE9F00A683DE /* LeftButtonShowBackView.swift */,
 				846D8C0521ED63F200A683DE /* LeftButtonShowView.swift */,
 			);
@@ -484,6 +487,7 @@
 				846BCE4F21DF045A00A48595 /* CustomTableViewCell.swift in Sources */,
 				847107C121F301B100C61666 /* FindListModel.swift in Sources */,
 				8437B2AE21C7263C008F03D9 /* ViewController.swift in Sources */,
+				84E6CC252219332B00611DBD /* ShowTwoTableViewCell.swift in Sources */,
 				8453E4A721E5A86A00F66964 /* LoginBaseTextField.swift in Sources */,
 				8405BAE921E09A9300622F87 /* MineBaseTwoView.swift in Sources */,
 				8437B2AC21C7263C008F03D9 /* AppDelegate.swift in Sources */,

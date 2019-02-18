@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white;
         self.isAgreeProtocol = true;
+        
         backImageView.image = UIImage.init(named: "loginBG.jpg");
         goBackButton.setImage(UIImage.init(named: "icon_returnBack"), for: UIControlState.normal);
         goBackButton.backgroundColor = UIColor.clear;
